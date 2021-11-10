@@ -1,0 +1,18 @@
+import orderByProps from '../app';
+
+test('проверка сортировки', () => {
+  const testObj = {
+    name: 'мечник', health: 10, level: 2, attack: 80, defence: 40,
+  };
+  const testArr = ['name', 'level'];
+  const received = orderByProps(testObj, testArr);
+  const expected = [
+    { key: 'name', value: 'мечник' },
+    { key: 'level', value: 2 },
+    { key: 'attack', value: 80 },
+    { key: 'defence', value: 40 },
+    { key: 'health', value: 10 },
+  ];
+
+  expect(received).toEqual(expected);
+});
